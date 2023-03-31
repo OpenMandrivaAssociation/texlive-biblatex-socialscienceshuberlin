@@ -1,6 +1,6 @@
 Name:		texlive-biblatex-socialscienceshuberlin
 Version:	47839
-Release:	1
+Release:	2
 Summary:	BibLaTeX-style for the social sciences at HU Berlin
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/biblatex-socialscienceshuberlin
