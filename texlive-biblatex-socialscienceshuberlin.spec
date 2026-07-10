@@ -1,36 +1,23 @@
-Name:		texlive-biblatex-socialscienceshuberlin
-Version:	47839
-Release:	2
+%global tl_name biblatex-socialscienceshuberlin
+%global tl_revision 79461
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.0.1
+Release:	%{tl_revision}.1
 Summary:	BibLaTeX-style for the social sciences at HU Berlin
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/biblatex-socialscienceshuberlin
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/biblatex-contrib/biblatex-socialscienceshuberlin
 License:	lppl1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/biblatex-socialscienceshuberlin.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/biblatex-socialscienceshuberlin.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/biblatex-socialscienceshuberlin.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/biblatex-socialscienceshuberlin.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This is a BibLaTeX style for the social sciences at the
-Humboldt-Universitat zu Berlin.
+This is a BibLaTeX style for the social sciences at the Humboldt-
+Universitat zu Berlin.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/tex/latex/biblatex-socialscienceshuberlin
-%doc %{_texmfdistdir}/doc/latex/biblatex-socialscienceshuberlin
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
